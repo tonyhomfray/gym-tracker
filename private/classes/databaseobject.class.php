@@ -11,6 +11,7 @@ class DatabaseObject {
         self::$db_connection = $connection;
     }
 
+    // TODO move to a sub-class
     static public function getAllExerciseCategories() {
         $sql = "SELECT * FROM exercise_category";
         $stmt = self::$db_connection->prepare($sql);
@@ -19,5 +20,20 @@ class DatabaseObject {
         // var_dump($result);
         return $result;
     }
+
+
+    // public function get_by_sql($sql) {
+    //     $stmt = self::$db_connection->prepare($sql);
+    //     $result = $stmt->execute();
+    //     if(!$result) {
+    //         exit ("Database query failed.");
+    //     }
+    //     $object_array= [];
+    //     while($result = $result->fetch_assoc() {
+    //         $object_array[] = st
+    //     })
+
+    // }
+
 }
 ?>
