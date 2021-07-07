@@ -1,0 +1,17 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#top-nav, #footer {
+    width: 100vw;
+    background-color: orange;
+    padding: 1rem 10vw;
+}
+
+#main {
+    width: 100vw;
+    padding: 0 10vw;
+}
