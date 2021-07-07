@@ -22,13 +22,15 @@ class Exercise extends DatabaseObject {
         $this->workload = $args['workload'] ?? '';
     }
 
+
     static public function getExercise($sessionId) {
         
         $sql = "SELECT * FROM exercise_log WHERE session_id = {$sessionId}";
-        $stmt = self::$db_connection->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
+        // $stmt = self::$db_connection->prepare($sql);
+        // $stmt->execute();
+        // return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return self::get_by_sql($sql);
+
     }
 
 
