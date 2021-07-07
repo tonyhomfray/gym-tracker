@@ -17,13 +17,13 @@ $currentProgram = $user->current_program;
 $session = Session::getSession($username, $lastWorkout)['0'];
 
 
-$exerciseRecords = Exercise::getExercise($session->id);
+$session->exercises_performed = Exercise::getExercise($session->id);
 
 
-foreach ($exerciseRecords as $exercise ) {
-    $exerciseObj = new Exercise($exercise);
-    $session->exercises_performed[] = $exerciseObj;
-}
+// foreach ($exerciseRecords as $exercise ) {
+//     $exerciseObj = new Exercise($exercise);
+//     $session->exercises_performed[] = $exerciseObj;
+// }
 
 
 ?>
@@ -39,13 +39,19 @@ foreach ($exerciseRecords as $exercise ) {
     <title>Exercise Tracker - Home</title>
 </head>
 <body>
-    <nav id="top-nav">My Navigation</nav>
-    
+    <nav id="top-nav">
+        <div id="nav-top-left">
+            <span>Nav1</span>
+            <span>Nav2</span>
+            <span>Nav3</span>
+        </div>
+        <div id="nav-top-right">
+            <span>Welcome back <?php echo $username; ?></span>
+        </div>
+    </nav>
+
     <div id="main">
         <h1>Welcome to the Exercise Tracker App!</h1>
-        <h2>Public facing homepage</h2>
-        <h3>Welcome <?php echo $username; ?></h3>
-
 
         <div id="summary">
             <p>Current Program: <?php echo $currentProgram; ?></p>
@@ -53,12 +59,32 @@ foreach ($exerciseRecords as $exercise ) {
         </div>
 
         <div>
-            <?php 
+            <table>
+                <tr>
+                    <th>Exercise</th>
+                    <th>Reps</th>
+                    <th>Weight</th>
+                </tr>
+
+                <?php 
             foreach ($session->exercises_performed as $exercise ) {
-                var_dump($exercise);
-                echo "<br/>";
+                for($i = 0; $i < $exercise->sets; $i++) {
+                    echo "<tr>";
+                    if($i==0) {
+                        echo "<td>{$exercise->exercise_name}</td>";
+                    } else {
+                        echo "<td>&nbsp;</td>";
+                    }
+                    $reps = explode("|", $exercise->reps);
+                    $weight = explode("|", $exercise->weight);
+                    echo "<td>{$reps[$i]}</td>";
+                    echo "<td>{$weight[$i]}</td>";
+                    echo "</tr>";
+                }
+                echo "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
             }
             ?>
+            </table>
         </div>
 
     </div> <!-- #main -->
