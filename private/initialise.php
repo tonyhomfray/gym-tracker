@@ -2,6 +2,8 @@
 
 ob_start();
 
+session_start();
+
 // define some file path constants
 define("PRIVATE_FOLDER_PATH", dirname(__FILE__));
 define("PROJECT_ROOT_PATH", dirname(PRIVATE_FOLDER_PATH));
