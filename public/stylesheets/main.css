@@ -8,7 +8,7 @@
 
 #top-nav, #footer {
     background-color: orange;
-    padding: 1rem 10vw;
+    padding: 1rem 20vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,5 +24,114 @@
 /* #nav-top-left */
 
 #main {
-    padding: 0 10vw;
+    padding: 0 20vw;
+}
+
+
+
+
+
+
+/* Exercise Template */
+
+#exercise-form-container {
+    min-height: 100px;
+    width: 70vw;
+    margin: 0 auto;
+    color: blue;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.exercise {
+    border: solid 2px black;
+    padding: 2em;
+    background-color: white;
+    min-height: 200px;
+    width: 450px;
+    margin: 5px;
+    border-radius: 15px;
+    display: grid;
+    grid-row-gap: 0.5em  
+}
+
+.exercise-row {
+    display:grid;
+    grid-row-gap: 15px;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: minmax(2em, auto) 
+
+}
+
+.exercise-selector-header {
+    grid-column: 1/4;
+}
+.exercise-reps-header {
+    grid-column: 4/6;
+    display: flex;
+    justify-content: center;
+}
+
+.exercise-weight-header {
+    grid-column: 6/8;
+    display: flex;
+    justify-content: center;
+}
+.exercise-last-session-header {
+    grid-column: 8/11;
+    display: flex;
+    justify-content: center;
+}
+
+.row-header {
+    grid-column: 1/4;
+    display:flex;
+    align-items: center;
+}
+
+.row-content-reps {
+    grid-column: 4/6;
+}
+.row-content-reps>div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.row-content-weight {
+    grid-column: 6/8;
+}
+.row-content-weight>div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.row-content-last-session {
+    grid-column: 8/11;
+    /*   display: grid;
+    grid-template-columns: repeat(2, 1fr); */
+    display: flex;
+    justify-content: space-around;
+}
+
+.row-content-volume {
+    grid-column: 4/8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row-content-volume-last-session {
+    grid-column: 8/11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-content-notes {
+    grid-column: 4/8;
+}
+.row-content-notes-last-session {
+    grid-column: 8/11;
 }
